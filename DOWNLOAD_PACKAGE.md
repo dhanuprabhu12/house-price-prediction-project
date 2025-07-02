@@ -596,13 +596,13 @@ if __name__ == "__main__":
 **Instructions:** Save this as `render_requirements.txt`
 
 ```
-streamlit>=1.28.0
-pandas>=2.0.0
-numpy>=1.24.0
-plotly>=5.15.0
-scikit-learn>=1.3.0
-trafilatura>=1.6.0
-requests>=2.31.0
+streamlit==1.28.1
+pandas==2.0.3
+numpy==1.24.3
+plotly==5.15.0
+scikit-learn==1.3.0
+trafilatura==1.6.2
+requests==2.31.0
 ```
 
 ## File 3: render.yaml
@@ -614,7 +614,7 @@ services:
     name: home-price-estimator
     env: python
     runtime: python-3.11
-    buildCommand: pip install -r render_requirements.txt
+    buildCommand: pip install --upgrade pip && pip install -r render_requirements.txt
     startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
     envVars:
       - key: PYTHONUNBUFFERED
